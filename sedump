@@ -126,7 +126,7 @@ class SELinuxPolicy(setools.SELinuxPolicy):
 
                 # allow/dontaudit/auditallow/neverallow rules
                 if len(perms) > 1:
-                    rule_ += " {{ {0} }};".format(' '.join(perms))
+                    rule_ += " {{ {0} }};".format(' '.join(str(v) for v in perms))
                 else:
                     # convert to list since sets cannot be indexed
                     rule_ += " {0};".format(list(perms)[0])
